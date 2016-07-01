@@ -25,10 +25,10 @@ function banner() {
 
 function options() {
 	echo -e "${BB}${U}Repository Options:${N}\n"
-	echo -e "1] - Update"
-	echo -e "2] - List"
-	echo -e "3] - Count\n"
-	echo -e "0] - Exit\n"
+	echo -e "[1] - Update"
+	echo -e "[2] - List"
+	echo -e "[3] - Count\n"
+	echo -e "[0] - Exit\n"
 }
 
 function show_res() {
@@ -72,22 +72,22 @@ function list() {
 function update2() {
 	arr_=("$@")
 	for item in ${arr_[*]}; do
-  		echo -e "\n${G}[I] Updating: ${item%?????}${N}";
-  		cd "${item}"
-  		cd ".."
-  		output=$(git pull origin master)
-  		if echo "$output" | grep -q "$update"; then
-  			echo -e "\n${G}[I] Updated${N}"
-  			up=$(($up+1))
+		echo -e "\n${G}[I] Updating: ${item%?????}${N}";
+		cd "${item}"
+		cd ".."
+		output=$(git pull origin master)
+		if echo "$output" | grep -q "$update"; then
+			echo -e "\n${G}[I] Updated${N}"
+			up=$(($up+1))
 		elif echo "$output" | grep -q "$no_update"; then
-    			echo -e "\n${Y}[W] Already up-to-date${N}"
-    			no_up=$(($no_up+1))
-    		else
-    			echo -e "\n${LR}[E] Error!${N}"
-    			err=$(($err+1))
-    			press_enter "no"
+			echo -e "\n${Y}[W] Already up-to-date${N}"
+			no_up=$(($no_up+1))
+		else
+			echo -e "\n${LR}[E] Error!${N}"
+			err=$(($err+1))
+			press_enter "no"
 		fi
-  	done
+	done
 	show_res $up $no_up $err
 }
 
@@ -105,7 +105,7 @@ function update() {
 		fi
 		cnt=$(($cnt+1))
 	done
-	echo -en "\n${BB}Update 1] all, 2] select, 3] exclude: ${N}"
+	echo -en "\n${BB}Update [1] all, [2] select, [3] exclude: ${N}"
 	read input
 	case ${input} in
 		1)
