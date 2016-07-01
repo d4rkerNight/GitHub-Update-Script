@@ -2,6 +2,7 @@
 
 # Update Github repository
 # By Sergio Sieni
+#
 # bash/zsh
 
 U="\e[4m"		# underline
@@ -44,7 +45,7 @@ function show_res() {
 function press_enter() {
 	echo -en "\n${GG}Press Enter to continue${N}\n"
 	read
-	if [[ $1 == "clear" ]]; then
+	if [ $1 = "clear" ]; then
 		clear
 	fi
 }
@@ -85,7 +86,7 @@ function update2() {
 		else
 			echo -e "\n${LR}[E] Error!${N}"
 			err=$(($err+1))
-			press_enter "no"
+			press_enter "nclean"
 		fi
 	done
 	show_res $up $no_up $err
