@@ -6,7 +6,7 @@
 # bash/zsh
 
 U="\e[4m"		# underline
-B="\e[44m"		# blue
+B="\e[44m"		# blue background
 N="\e[0m"		# normal
 G="\e[32m"		# green
 Y="\e[93m"		# yellow
