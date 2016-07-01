@@ -7,7 +7,7 @@
 
 U="\e[4m"		# underline
 B="\e[44m"		# blue
-N="\e[0m"		# normal
+N="\e[0m"		# normal background
 G="\e[32m"		# green
 Y="\e[93m"		# yellow
 LR="\e[91m"		# light red
