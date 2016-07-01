@@ -80,12 +80,12 @@ function update2() {
   			echo -e "\n${G}[I] Updated${N}"
   			up=$(($up+1))
 		elif echo "$output" | grep -q "$no_update"; then
-    		echo -e "\n${Y}[W] Already up-to-date${N}"
-    		no_up=$(($no_up+1))
-    	else
-    		echo -e "\n${LR}[E] Error!${N}"
-    		err=$(($err+1))
-    		press_enter "no"
+    			echo -e "\n${Y}[W] Already up-to-date${N}"
+    			no_up=$(($no_up+1))
+    		else
+    			echo -e "\n${LR}[E] Error!${N}"
+    			err=$(($err+1))
+    			press_enter "no"
 		fi
   	done
 	show_res $up $no_up $err
