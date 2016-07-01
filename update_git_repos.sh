@@ -2,7 +2,7 @@
 
 # Update Github repository
 # By Sergio Sieni
-# Works: bash/zsh
+# bash/zsh
 
 U="\e[4m"		# underline
 B="\e[44m"		# blue
