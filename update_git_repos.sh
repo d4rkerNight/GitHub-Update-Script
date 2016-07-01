@@ -75,7 +75,7 @@ function update2() {
   		echo -e "\n${G}[I] Updating: ${item%?????}${N}";
   		cd "${item}"
   		cd ".."
-  		output=$(git pull origin master -f)
+  		output=$(git pull origin master)
   		if echo "$output" | grep -q "$update"; then
   			echo -e "\n${G}[I] Updated${N}"
   			up=$(($up+1))
