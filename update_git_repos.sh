@@ -180,7 +180,6 @@ until [ "${selection}" = "0" ]; do
 			;;
 		*)
 			echo -e "${LRB}Invalid Option${N}\n"
-			sleep 1
-			clear
+			press_enter "clear"
 	esac
 done
