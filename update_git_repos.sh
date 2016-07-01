@@ -11,8 +11,8 @@ G="\e[32m"		# green
 Y="\e[93m"		# yellow
 LR="\e[91m"		# light red
 BB="\e[1m"		# bolt
-GG="\e[100m"	# gray
-LRB="\e[101m"	# light red background
+GG="\e[100m"		# gray
+LRB="\e[101m"		# light red background
 input=""; selection=""
 update="changed"
 no_update="up-to-date"
