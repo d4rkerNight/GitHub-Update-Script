@@ -3,7 +3,6 @@
 # Update Github repository
 # By Sergio Sieni
 #
-#
 # Archlinux zsh
 # Debian bash
 
