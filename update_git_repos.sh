@@ -70,6 +70,19 @@ function list() {
 	done
 }
 
+function find_repo() {
+	start=1
+	end=${#array[*]}
+	select_=()
+	for num in $selected; do
+		if [[ $num -ge $start && $num -le $end ]]; then
+			select_+=("$num")
+		else
+			echo -e "${LR}[E] $num is not valid!${N}"
+		fi
+	done
+}
+
 function update2() {
 	arr_=("$@")
 	for item in ${arr_[*]}; do
@@ -114,17 +127,8 @@ function update() {
 		2)
 			echo -en "\n${BB}Which Repo/s (separated by space): ${N}"
 			read selected
-			start=1
-			end=${#array[*]}
-			select_=()
+			find_repo $selected ${array[*]}
 			new_arr=()
-			for num in $selected; do
-				if [[ $num -ge $start && $num -le $end ]]; then
-					select_+=("$num")
-				else
-					echo -e "${LR}[E] $num is not valid!${N}"
-				fi
-			done
 			for sel in ${select_[*]}; do
 				new_arr+=("${array[$((sel-1))]}")
 			done
@@ -132,18 +136,9 @@ function update() {
 			;;
 		3)
 			echo -en "\n${BB}Which Repo/s to exclude (separated by space): ${N}"
-			read excluded
-			start=1
-			end=${#array[*]}
-			delete=()
-			for num in $excluded; do
-				if [[ $num -ge $start && $num -le $end ]]; then
-					delete+=("$num")
-				else
-					echo -e "${LR}[E] $num is not valid!${N}"
-				fi
-			done
-			for del in ${delete[@]}; do
+			read selected
+			find_repo $selected ${array[*]}
+			for del in ${select_[@]}; do
 				unset array[$((del-1))]
 			done
 			update2 ${array[*]}
