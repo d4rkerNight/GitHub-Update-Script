@@ -16,7 +16,7 @@ BB="\e[1m"		# bolt
 GG="\e[100m"		# gray
 LRB="\e[101m"		# light red background
 input=""; selection=""
-update="changed"
+update="Updating"
 no_update="up-to-date"
 up=0; no_up=0; err=0
 
