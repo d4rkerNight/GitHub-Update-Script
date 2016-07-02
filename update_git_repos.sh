@@ -138,7 +138,7 @@ function update() {
 			echo -en "\n${BB}Which Repo/s to exclude (separated by space): ${N}"
 			read selected
 			find_repo $selected ${array[*]}
-			for del in ${select_[@]}; do
+			for del in ${select_[*]}; do
 				unset array[$((del-1))]
 			done
 			update2 ${array[*]}
