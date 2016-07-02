@@ -34,11 +34,11 @@ function options() {
 
 function show_res() {
 	echo -e "\n${BB}[I] Done!!${N}"
-	echo -e "\n${BB}###############${N}"
-	echo -e "${G}[I] Updated: ${up}${N}"
-	echo -e "${Y}[W] Up-to-Date: ${no_up}${N}"
-	echo -e "${LR}[E] Error: ${err}${N}"
-	echo -e "${BB}###############${N}"
+	echo -e "\n${BB}#################${N}"
+	echo -e "${G}[I] Updated:\t${up}${N}"
+	echo -e "${Y}[W] Up-to-Date:\t${no_up}${N}"
+	echo -e "${LR}[E] Error:\t${err}${N}"
+	echo -e "${BB}#################${N}"
 	up=0; no_up=0; err=0
 }
 
