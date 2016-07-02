@@ -74,8 +74,7 @@ function update2() {
 	arr_=("$@")
 	for item in ${arr_[*]}; do
 		echo -e "\n${G}[I] Updating: ${item%?????}${N}";
-		cd "${item}"
-		cd ".."
+		cd "${item}"; cd ".."
 		output=$(git pull origin master)
 		if echo "$output" | grep -q "$update"; then
 			echo -e "\n${G}[I] Updated${N}"
