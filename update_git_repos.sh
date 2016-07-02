@@ -3,7 +3,8 @@
 # Update Github repository
 # By Sergio Sieni
 #
-# bash/zsh
+# Archlinux zsh
+# Debian bash
 
 U="\e[4m"		# underline
 B="\e[44m"		# blue background
