@@ -11,8 +11,8 @@ B="\e[44m"		# blue background
 N="\e[0m"		# normal
 G="\e[32m"		# green
 Y="\e[93m"		# yellow
-LR="\e[91m"		# light red
 BB="\e[1m"		# bolt
+LR="\e[91m"		# light red
 GG="\e[100m"		# gray
 LRB="\e[101m"		# light red background
 input=""; selection=""
