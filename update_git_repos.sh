@@ -79,6 +79,7 @@ function find_repo() {
 			select_+=("$num")
 		else
 			echo -e "${LR}[E] $num is not valid!${N}"
+			press_enter "nclean"
 		fi
 	done
 }
