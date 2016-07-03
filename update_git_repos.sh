@@ -171,7 +171,6 @@ until [ "${selection}" = "0" ]; do
 			;;
 		0)
 			echo -e "${BB}Quitting...${N}\n"
-			exit 0
 			;;
 		*)
 			echo -e "${LRB}Invalid Option${N}\n"
