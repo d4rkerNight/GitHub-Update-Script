@@ -153,7 +153,7 @@ clear
 until [ "${selection}" = "0" ]; do
 	banner
 	options
-	echo -en "${BB}Select:${N} "
+	echo -en "${BB}Select: ${N}"
 	read selection
 	echo ""
 	case ${selection} in
