@@ -95,12 +95,12 @@ function show_err() {
 				if [[ ${#arr_err[*]} -gt 1 ]]; then
 					echo -e "\n${BB}${#arr_err[*]} Errors #################${N}"
 				else
-					echo -e "\n${BB}${#arr_err[*]} Error  #################${N}"
+					echo -e "\n${BB}${#arr_err[*]} Error   #################${N}"
 				fi
 				for error in ${arr_err[*]}; do
 					echo -e "${LR}$error${N}"
 				done
-				echo -e "${BB}##########################${N}"
+				echo -e "${BB}###########################${N}"
 				press_enter "clear"
 				break
 				;;
