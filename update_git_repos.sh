@@ -44,7 +44,7 @@ function show_res() {
 }
 
 function press_enter() {
-	echo -en "\n${GR}Press Enter to continue${N}\n"
+	echo -en "\n${GR}Press Enter to continue${N}"
 	read
 	if [ $1 = "clear" ]; then
 		clear
@@ -100,7 +100,7 @@ function show_err() {
 				for error in ${arr_err[*]}; do
 					echo -e "${LR}$error${N}"
 				done
-				echo -e "${BB}##########################${N}\n"
+				echo -e "${BB}##########################${N}"
 				press_enter "clear"
 				break
 				;;
@@ -129,7 +129,7 @@ function update2() {
 			no_up=$(($no_up+1))
 		else
 			echo -e "\n${LR}[E] Error!${N}\n"
-			echo -e "${N}$output${N}\n"
+			echo -e "${N}$output${N}"
 			err=$(($err+1))
 			arr_err+=("${item%?????}")
 			press_enter "nclean"
