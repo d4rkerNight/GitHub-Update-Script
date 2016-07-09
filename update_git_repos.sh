@@ -16,6 +16,7 @@ LR="\e[91m"		# light red
 GG="\e[100m"		# gray
 LRB="\e[101m"		# light red background
 input=""; selection=""
+abort="Aborting"
 update="Updating"
 no_update="up-to-date"
 up=0; no_up=0; err=0
@@ -84,13 +85,42 @@ function find_repo() {
 	done
 }
 
+function show_err() {
+	show_error=""
+	until [ "${show_error}" = "n" ]; do
+		echo -en "${BB}\nShow Error/s [y/n]? ${N}"
+		read show_error
+		case ${show_error} in
+			y|"")
+				if [[ ${#arr_err[*]} -gt 1 ]]; then
+					echo -e "\n${BB}${#arr_err[*]} Errors #################${N}"
+				else
+					echo -e "\n${BB}${#arr_err[*]} Error  #################${N}"
+				fi
+				for error in ${arr_err[*]}; do
+					echo -e "${LR}[E] $error${N}"
+				done
+				echo -e "${BB}##########################${N}\n"
+				press_enter "clear"
+				break
+				;;
+			n)
+				press_enter "clear"
+				;;
+			*)
+				echo -e "\n${LRB}Invalid Option${N}"
+		esac
+	done
+}
+
 function update2() {
 	arr_=("$@")
+	arr_err=()
 	for item in ${arr_[*]}; do
 		echo -e "\n${G}[I] Updating: ${item%?????}${N}";
 		cd "${item}"; cd ".."
-		output=$(git pull origin master)
-		if echo "$output" | grep -q "$update"; then
+		output=$(git pull origin master 2>&1)
+		if echo "$output" | grep -q "$update" && ! echo "$output" | grep -q "$abort"; then
 			echo -e "\n${G}[I] Updated${N}"
 			up=$(($up+1))
 		elif echo "$output" | grep -q "$no_update"; then
@@ -98,7 +128,9 @@ function update2() {
 			no_up=$(($no_up+1))
 		else
 			echo -e "\n${LR}[E] Error!${N}"
+			echo -e "${N}$output${N}\n"
 			err=$(($err+1))
+			arr_err+=("${item%?????}")
 			press_enter "nclean"
 		fi
 	done
@@ -159,7 +191,11 @@ until [ "${selection}" = "0" ]; do
 	case ${selection} in
 		1)
 			update
-			press_enter "clear"
+			if [[ ${#arr_err[*]} -gt 0 ]]; then
+				show_err
+			else
+				press_enter "clear"
+			fi
 			;;
 		2)
 			list
