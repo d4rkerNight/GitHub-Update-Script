@@ -114,10 +114,11 @@ function show_err() {
 }
 
 function update2() {
+	cnt=1
 	arr_=("$@")
 	arr_err=()
 	for item in ${arr_[*]}; do
-		echo -e "\n${G}[I] Updating: ${item%?????}${N}";
+		echo -e "\n${G}[I] $cnt/${#arr_[*]} Updating: ${item%?????}${N}";
 		cd "${item}"; cd ".."
 		output=$(git pull origin master 2>&1)
 		if echo "$output" | grep -q "$update" && ! echo "$output" | grep -q "$abort"; then
@@ -133,6 +134,7 @@ function update2() {
 			arr_err+=("${item%?????}")
 			press_enter "nclean"
 		fi
+		cnt=$(($cnt+1))
 	done
 	show_res $up $no_up $err
 }
