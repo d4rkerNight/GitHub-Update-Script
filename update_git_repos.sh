@@ -128,7 +128,7 @@ function update2() {
 			echo -e "\n${Y}[W] Already up-to-date${N}"
 			no_up=$(($no_up+1))
 		else
-			echo -e "\n${LR}[E] Error!${N}"
+			echo -e "\n${LR}[E] Error!${N}\n"
 			echo -e "${N}$output${N}\n"
 			err=$(($err+1))
 			arr_err+=("${item%?????}")
