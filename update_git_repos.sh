@@ -13,7 +13,7 @@ G="\e[32m"		# green
 Y="\e[93m"		# yellow
 BB="\e[1m"		# bolt
 LR="\e[91m"		# light red
-GG="\e[100m"		# gray
+GR="\e[100m"		# gray
 LRB="\e[101m"		# light red background
 input=""; selection=""
 abort="Aborting"
@@ -44,7 +44,7 @@ function show_res() {
 }
 
 function press_enter() {
-	echo -en "\n${GG}Press Enter to continue${N}\n"
+	echo -en "\n${GR}Press Enter to continue${N}\n"
 	read
 	if [ $1 = "clear" ]; then
 		clear
