@@ -98,7 +98,7 @@ function show_err() {
 					echo -e "\n${BB}${#arr_err[*]} Error  #################${N}"
 				fi
 				for error in ${arr_err[*]}; do
-					echo -e "${LR}[E] $error${N}"
+					echo -e "${LR}$error${N}"
 				done
 				echo -e "${BB}##########################${N}\n"
 				press_enter "clear"
