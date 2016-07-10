@@ -7,11 +7,11 @@
 # Debian bash
 
 U="\e[4m"		# underline
-B="\e[44m"		# blue background
+B="\e[1m"		# bolt
 N="\e[0m"		# normal
 G="\e[32m"		# green
 Y="\e[93m"		# yellow
-BB="\e[1m"		# bolt
+BB="\e[44m"		# blue background
 LR="\e[91m"		# light red
 GR="\e[100m"		# gray
 LRB="\e[101m"		# light red background
@@ -22,12 +22,12 @@ no_update="up-to-date"
 up=0; no_up=0; err=0
 
 function banner() {
-	echo -e "\n\t${B}GitHub Update Script${N}"
-	echo -e "\t  ${B}by Sergio  Sieni${N}\n"
+	echo -e "\n\t${BB}GitHub Update Script${N}"
+	echo -e "\t  ${BB}by Sergio  Sieni${N}\n"
 }
 
 function options() {
-	echo -e "${BB}${U}Repository Options:${N}\n"
+	echo -e "${B}${U}Repository Options:${N}\n"
 	echo -e "[1] - Update"
 	echo -e "[2] - List"
 	echo -e "[3] - Count\n"
@@ -35,11 +35,11 @@ function options() {
 }
 
 function show_res() {
-	echo -e "\n${BB}Done!! ##########${N}"
+	echo -e "\n${B}Done!! ##########${N}"
 	echo -e "${G}[I] Updated:\t${up}${N}"
 	echo -e "${Y}[W] Up-to-Date:\t${no_up}${N}"
 	echo -e "${LR}[E] Error:\t${err}${N}"
-	echo -e "${BB}#################${N}"
+	echo -e "${B}#################${N}"
 	up=0; no_up=0; err=0
 }
 
@@ -88,19 +88,19 @@ function find_repo() {
 function show_err() {
 	show_error=""
 	until [ "${show_error}" = "n" ]; do
-		echo -en "${BB}\nShow Error/s [y/n]? ${N}"
+		echo -en "${B}\nShow Error/s [y/n]? ${N}"
 		read show_error
 		case ${show_error} in
 			y|"")
 				if [[ ${#arr_err[*]} -gt 1 ]]; then
-					echo -e "\n${BB}${#arr_err[*]} Errors #################${N}"
+					echo -e "\n${B}${#arr_err[*]} Errors #################${N}"
 				else
-					echo -e "\n${BB}${#arr_err[*]} Error   #################${N}"
+					echo -e "\n${B}${#arr_err[*]} Error   #################${N}"
 				fi
 				for error in ${arr_err[*]}; do
 					echo -e "${LR}$error${N}"
 				done
-				echo -e "${BB}###########################${N}"
+				echo -e "${B}###########################${N}"
 				press_enter "clear"
 				break
 				;;
@@ -153,14 +153,14 @@ function update() {
 		fi
 		cnt=$(($cnt+1))
 	done
-	echo -en "\n${BB}Update [1] all, [2] select, [3] exclude: ${N}"
+	echo -en "\n${B}Update [1] all, [2] select, [3] exclude: ${N}"
 	read input
 	case ${input} in
 		1)
 			update2 ${array[*]}
 			;;
 		2)
-			echo -en "\n${BB}Which Repo/s (separated by space): ${N}"
+			echo -en "\n${B}Which Repo/s (separated by space): ${N}"
 			read selected
 			find_repo $selected ${array[*]}
 			new_arr=()
@@ -170,7 +170,7 @@ function update() {
 			update2 ${new_arr[*]}
 			;;
 		3)
-			echo -en "\n${BB}Which Repo/s to exclude (separated by space): ${N}"
+			echo -en "\n${B}Which Repo/s to exclude (separated by space): ${N}"
 			read selected
 			find_repo $selected ${array[*]}
 			for del in ${select_[*]}; do
@@ -187,7 +187,7 @@ clear
 until [ "${selection}" = "0" ]; do
 	banner
 	options
-	echo -en "${BB}Select: ${N}"
+	echo -en "${B}Select: ${N}"
 	read selection
 	echo ""
 	case ${selection} in
@@ -208,7 +208,7 @@ until [ "${selection}" = "0" ]; do
 			press_enter "clear"
 			;;
 		0)
-			echo -e "${BB}Quitting...${N}\n"
+			echo -e "${B}Quitting...${N}\n"
 			;;
 		*)
 			echo -e "${LRB}Invalid Option${N}\n"
