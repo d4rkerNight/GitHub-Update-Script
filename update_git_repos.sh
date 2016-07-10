@@ -87,7 +87,11 @@ function find_repo() {
 function show_err() {
 	show_error=""
 	until [ "${show_error}" = "n" ]; do
-		echo -en "${B}\nShow Error/s [y/n]? ${N}"
+		if [[ ${#arr_err[*]} -gt 1 ]];then
+			echo -en "${B}\nShow Errors [y/n]? ${N}"
+		else
+			echo -en "${B}\nShow Error [y/n]? ${N}"
+		fi
 		read show_error
 		case ${show_error} in
 			y|"")
