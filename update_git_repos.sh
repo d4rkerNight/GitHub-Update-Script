@@ -15,7 +15,6 @@ BB="\e[44m"		# blue background
 LR="\e[91m"		# light red
 GR="\e[100m"		# gray
 LRB="\e[101m"		# light red background
-input=""; selection=""
 abort="Aborting"
 update="Updating"
 no_update="up-to-date"
