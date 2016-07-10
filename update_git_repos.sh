@@ -37,7 +37,11 @@ function show_res() {
 	echo -e "\n${B}Done!! ##########${N}"
 	echo -e "${G}[I] Updated:\t${up}${N}"
 	echo -e "${Y}[W] Up-to-Date:\t${no_up}${N}"
-	echo -e "${LR}[E] Error/s:\t${err}${N}"
+	if [[ ${err} -gt 1 ]];then
+		echo -e "${LR}[E] Errors:\t${err}${N}"
+	else
+		echo -e "${LR}[E] Error:\t${err}${N}"
+	fi
 	echo -e "${B}#################${N}"
 	up=0; no_up=0; err=0
 }
