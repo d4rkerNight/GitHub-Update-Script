@@ -22,7 +22,7 @@ up=0; no_up=0; err=0
 
 function banner() {
 	echo -e "\n\t${BB}GitHub Update Script${N}"
-	echo -e "\t  ${BB}by Sergio  Sieni${N}\n"
+	echo -e "\t  ${BB}by Tesla${N}\n"
 }
 
 function options() {
