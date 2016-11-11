@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Update Github repository
-# By Sergio Sieni
+# By Tesla
 #
 # Archlinux zsh
 # Debian bash
